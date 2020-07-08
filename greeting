@@ -1,0 +1,19 @@
+#!/bin/bash
+
+source colours
+
+free_space=$(df -h | egrep "(sd[a-z]|dm-[0-9]|pCloud)" | awk 'function basename(file) {sub(".*/", "", file);return file} {print "\t", $6,"("$5")","["$3"/"$2"]","{"basename($1)"}"}' | sed 's/ //' | column -t -s ' ')
+ipa=$(ip a | grep wlp | tail -n1 | awk '{print "\t",$9":" , $2}' | sed 's/\/.*//')
+hostname=$(hostname)
+os=$(uname -v | awk '{print $3}')
+kernel=$(uname -v | awk '{print $4}')
+uptime=$(uptime -p | awk '{$1=""; print}' | sed 's/^\s//')
+
+
+echo -e "\n${WHITE}OS ${GREEN}$os $kernel${NONE}"
+echo -e "${WHITE}Uptime ${GREEN}$uptime${NONE}"
+echo -e "${WHITE}Hostname ${GREEN}$hostname${NONE}"
+echo -e "${WHITE}Disk usage${NONE}"
+echo -e "${GREEN}$free_space${NONE}"
+echo -e "${WHITE}Network${NONE}"
+echo -e "${GREEN}$ipa${NONE}\n"

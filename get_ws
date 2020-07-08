@@ -1,0 +1,14 @@
+#!/bin/python3.8
+
+def get_ws():
+    try:
+        import i3
+        workspaces = i3.get_workspaces()
+        for ws in workspaces:
+            if ws["visible"]:
+                print(ws["num"])
+                return
+    except:
+        return
+
+get_ws()

@@ -1,0 +1,26 @@
+#!/bin/bash
+
+
+colour_string() {
+    str="$1"
+
+    echo "\033[${str}m"
+}
+
+NONE=$(colour_string "0")
+BLACK=$(colour_string "0;30")
+RED=$(colour_string "0;31")
+GREEN=$(colour_string "0;32")
+ORANGE=$(colour_string "0;33")
+BLUE=$(colour_string "0;34")
+PURPLE=$(colour_string "0;35")
+CYAN=$(colour_string "0;36")
+LGREY=$(colour_string "0;37")
+DGRAY=$(colour_string "1;30")
+LRED=$(colour_string "1;31")
+LGREEN=$(colour_string "1;32")
+YELLOW=$(colour_string "1;33")
+LBLUE=$(colour_string "1;34")
+LPURPLE=$(colour_string "1;35")
+LCYAN=$(colour_string "1;36")
+WHITE=$(colour_string "1;37")

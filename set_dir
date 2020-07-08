@@ -1,0 +1,17 @@
+#!/bin/bash
+
+ws="$(get_ws)"
+
+case $ws in
+    3|4)
+        cd $HOME/Dev
+        ;;
+    5)
+        cd $HOME/.config/
+        ;;
+    6)
+        cd $HOME/Scripts
+        ;;
+    *)
+        ;;
+esac
