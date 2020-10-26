@@ -1,0 +1,14 @@
+#!/bin/bash
+
+arg=$1
+
+if [[ $arg == "up" ]]; then
+    xbacklight -inc 5
+elif [[ $arg == "down" ]]; then
+    xbacklight -dec 5
+else
+    exit
+fi
+
+light=$(xbacklight -get | awk '{print int($1)}')
+dunstify "$light&" --appname="Backlight" -r 998
