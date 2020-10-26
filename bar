@@ -3,6 +3,8 @@
 while true; do
     date="$(date +%A) $(date --iso-8601=minutes | sed 's/T/ /g' | sed 's/+.\+//g')"
     bat=$(acpi -V | head -n1 | awk '{$1=$2=""; print $0}' | sed 's/^\s\+//g')
+
+    sudo pacman -Sy 1>&2>/dev/null &
     update_count=$(pacman -Qu | wc -l)
 
     xsetroot -name "| Updates: $update_count | Battery: $bat | $date | $USER@$HOSTNAME |"
