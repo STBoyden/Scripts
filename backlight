@@ -11,4 +11,4 @@ else
 fi
 
 light=$(xbacklight -get | awk '{print int($1)}')
-dunstify "$light&" --appname="Backlight" -r 998
+dunstify "$light%" --appname="Backlight" -r 998
